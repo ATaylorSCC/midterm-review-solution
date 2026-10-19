@@ -1,0 +1,28 @@
+<header class="app-header">
+  <h1>{{ title }}</h1>
+  <button type="button" (click)="toggleStats()">
+    {{ showStats() ? 'Hide stats' : 'Show stats' }}
+  </button>
+</header>
+
+<main class="app-main">
+  <!-- No inputs or template variables connect these components any more.
+       Each one injects TrailService and reads the shared state itself. -->
+  <div class="layout">
+    <app-trail-list />
+
+    <aside class="side">
+      <app-trail-detail />
+      <!-- @if adds and removes the component, so its lifecycle hooks run each toggle. -->
+      @if (showStats()) {
+        <app-stats-panel />
+      }
+    </aside>
+  </div>
+
+  <!-- Two instances of the same component, each with its own PackListStore. -->
+  <section class="packs">
+    <app-pack-list label="Day pack" />
+    <app-pack-list label="Overnight pack" />
+  </section>
+</main>

@@ -52,6 +52,11 @@
         (selected)="trailService.select($event)"
         (favouriteToggled)="trailService.toggleFavourite($event)"
       />
+      <!-- DYNAMIC ROUTER LINK:
+     For trail ID 3, this navigates to /trails/3. -->
+      <a [routerLink]="['/trails', trail.id]">
+        View Details
+      </a>
     </div>
   } @empty {
     <p>No trails match your filters.</p>

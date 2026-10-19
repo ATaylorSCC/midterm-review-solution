@@ -11,10 +11,10 @@ import { TrailDetail } from './trail-detail/trail-detail';
 import { StatsPanel } from './stats-panel/stats-panel';
 import { PackList } from './pack-list/pack-list';
 import { TRAILHEAD_CONFIG } from './shared/config/trailhead-config';
-
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
-  imports: [TrailList, TrailDetail, StatsPanel, PackList],
+  imports: [ StatsPanel,RouterLink, RouterLinkActive, RouterOutlet, StatsPanel, PackList], // removed trail list and trail detail
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { TrailCard } from '../trail-card/trail-card';
 import { DIFFICULTIES, isDifficulty } from '../shared/models/trail';
 import { TrailService } from '../services/trail.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-trail-list',
-  imports: [TrailCard],
+  imports: [TrailCard, RouterLink],
   templateUrl: './trail-list.html',
   styleUrl: './trail-list.scss',
 })

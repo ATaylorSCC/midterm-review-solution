@@ -2,11 +2,14 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import { TRAILHEAD_CONFIG } from './shared/config/trailhead-config';
 import { HIKE_ID, hikeIdFactory } from './shared/config/hike-id';
 import { LocalTrailDataSource, TrailDataSource } from './services/trail-data-source';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     // useValue: provide a ready-made value for a token.
+    provideRouter(routes, withComponentInputBinding()), // MUST ADD FOR ROUTERS
     {
       provide: TRAILHEAD_CONFIG,
       useValue: { appName: 'Trailhead', paceKmPerHour: 4, storageKey: 'trailhead.favourites' },
